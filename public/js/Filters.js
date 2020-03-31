@@ -153,10 +153,10 @@ function redirectPage() {
         redirectPage += 'price_high_to_low=1&';
     }
     if (minPrice) {
-        redirectPage += 'price_min=' + minPrice+'&';
+        redirectPage += 'price_min=' + minPrice + '&';
     }
     if (maxPrice) {
-        redirectPage += 'price_max=' + maxPrice+'&';
+        redirectPage += 'price_max=' + maxPrice + '&';
     }
     if (searchQuery) {
         redirectPage += 'search_query=' + searchQuery + '&';

@@ -35,7 +35,7 @@ router.get('/GetMany', function (req, res) {
     }
     var search_query = req.query.search_query;
 
-    var filters = { search_query:req.query.search_query, price_low_to_high: price_low_to_high, price_high_to_low: price_high_to_low, price_min: price_min, price_max: price_max };
+    var filters = { search_query: req.query.search_query, price_low_to_high: price_low_to_high, price_high_to_low: price_high_to_low, price_min: price_min, price_max: price_max };
 
     rest.getJSON(data_options, (statusCode, result) => {
 
@@ -52,7 +52,7 @@ router.get('/GetMany', function (req, res) {
                 i--;
             }
         }
-       
+
 
         //Price Sort
         if (price_low_to_high) {
@@ -66,7 +66,7 @@ router.get('/GetMany', function (req, res) {
             });
         }
 
-        res.render('product', { title: 'Product', products: result, filters:filters});
+        res.render('product', { title: 'Product', products: result, filters: filters });
     });
 });
 
@@ -77,11 +77,12 @@ router.get('/GetSingle', function (req, res) {
         rest.getJSON(data_options, (statusCode, result) => {
             var product = result.find(x => x._id === id)
             var tags = product.tags.join(', ');
-            res.render('product-detail', { title: 'Product', product: product, tags:tags });
+            res.render('product-detail', { title: 'Product', product: product, tags: tags });
         });
     }
     else {
         res.render('error', {
+            title: 'ERROR',
             message: 'Must supply product id.',
             error: 'No Product ID Given'
         });
